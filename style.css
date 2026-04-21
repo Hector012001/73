@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CONTENEDOR */
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+/* PIEZAS */
+.pieza {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+  transition: all 1s ease;
+}
+
+/* POSICIONES INICIALES (fuera de pantalla) */
+.p1 { top: -200px; left: 0; }
+.p2 { top: 200px; left: 0; }
+.p3 { top: 0; left: -200px; }
+.p4 { top: 0; left: 200px; }
+
+/* CUANDO APARECEN */
+.pieza.activa {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* EFECTO FINAL */
+.container.final {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 10px #00ffcc); }
+  to { filter: drop-shadow(0 0 30px #ff00ff); }
+}
